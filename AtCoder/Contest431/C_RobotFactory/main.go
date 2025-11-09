@@ -24,15 +24,12 @@ func Factory() {
 	sort.Ints(head_parts)
 	sort.Ints(body_parts)
 
-	current_index_head := 0
+	j := 0
 	count := 0
-	for i := 0; i < M; i++ {
-		for j := current_index_head; j < N; j++ {
-			if body_parts[i] >= head_parts[j] {
-				count++
-				current_index_head = j + 1
-				break
-			}
+	for i := 0; i < M && j < N; i++ {
+		if body_parts[i] >= head_parts[j] {
+			count++
+			j++
 		}
 	}
 
